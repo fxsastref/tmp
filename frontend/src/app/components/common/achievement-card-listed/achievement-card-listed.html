@@ -1,0 +1,59 @@
+<article class="block w-full py-3 sm:py-4 bg-surface rounded-xl">
+  <section class="flex justify-start items-center space-x-3 gap-6 px-4 py-2">
+
+    <!-- Achievement Icon -->
+    <figure class="size-9 md:size-12">
+      @if (achievement) {
+      <img class="size-full object-contain" src="{{achievement.icon || ''}}" alt="Achievement Icon" />
+      } @else {
+        @if (achievementProgress.unlocked) {
+          <img class="size-full object-contain" src="{{achievementProgress.icon || ''}}" alt="Achievement Icon" />
+        } @else {
+          <img class="size-full object-contain" src="{{achievementProgress.iconGray || ''}}" alt="Achievement Icon gray" />
+        }
+      }
+    </figure>
+
+    <section class="w-full flex flex-col sm:flex-row gap-3 sm:gap-0 sm:justify-between sm:items-center">
+      <!-- Title and Description -->
+      <div>
+        @if (achievement) {
+          <p class="text-text-primary text-sm">{{achievement.displayName || ""}}</p>
+          <p class="text-text-primary text-sm">{{achievement.description || ""}}</p>
+        } @else {
+          <p class="text-text-primary text-sm">{{achievementProgress.displayName || ""}}</p>
+          <p class="text-text-primary text-sm">{{achievementProgress.description || ""}}</p>
+        }
+      </div>
+  
+      <!-- Achievement State -->
+      <div>
+        @if (achievementProgress) {
+        @if (achievementProgress.unlocked) {
+        <span
+          class="inline-flex items-center bg-brand border border-brand-subtle text-text-primary text-xs font-medium px-1.5 py-0.5 rounded-sm">
+          <span class="size-2 me-1 bg-teal rounded-full"></span>
+          Unlocked
+        </span>
+        } @else {
+        <span
+          class="inline-flex items-center text-text-muted border border-neutral-quaternary-subtle text-xs font-medium px-1.5 py-0.5 rounded-sm">
+          <span class="size-2 me-1 bg-neutral-quaternary rounded-full"></span>
+          Not unlocked
+        </span>
+        }
+        } @else {
+        <span
+          class="inline-flex items-center border border-brand-subtle text-text-primary text-xs font-medium px-1.5 py-0.5 rounded-sm">
+          <span class="size-2 me-1 bg-teal rounded-full"></span>
+          @if (achievement.playerPercentUnlocked) {
+            {{achievement.playerPercentUnlocked}}%
+          } @else {
+            NA
+          }
+        </span>
+        }
+      </div>
+    </section>
+  </section>
+</article>

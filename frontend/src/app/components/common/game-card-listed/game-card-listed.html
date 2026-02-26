@@ -1,0 +1,48 @@
+<article class="bg-surface flex w-full h-38 md:max-w-5xl md:rounded overflow-hidden">
+    <!-- Game Image -->
+    <figure [routerLink]="['/game-info', game?.apiId, userId]" class="w-2/5 sm:w-1/3 overflow-hidden p-2 rounded-base cursor-pointer">
+        <img src="{{game.headerImage}}" alt="Front Page" class="size-full rounded-base object-cover hover:scale-110 transition duration-300">
+    </figure>
+
+    <!-- Game Information -->
+    <section class="p-2 flex flex-col justify-between w-full sm:p-4">
+        <!-- Title and Info -->
+        <div class="flex w-full h-full flex-col items-start justify-between sm:flex-row sm:justify-between sm:items-start">
+            <div>
+                <a [routerLink]="['/game-info', game?.apiId, userId]">
+                    <h3 class="inline-block text-text-primary text-xl font-bold mb-0.5 sm:mb-1 hover:scale-105 transition duration-150">{{game.name}}</h3>
+                </a>
+                <p class="text-text-muted text-xs sm:text-sm w-10/12 truncate">{{game?.publishers}} • {{game.developers}}</p>
+            </div>
+    
+            <div>
+                <button [routerLink]="['/game-info', game?.apiId, userId]" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden sm:text-sm font-medium rounded-base bg-secondary sm:bg-gradient-to-br sm:from-cyan-500 sm:to-blue-500 cursor-pointer text-text-muted hover:text hover:scale-105 transition duration-150">
+                    <!-- Desktop -->
+                     <span class="relative hidden sm:inline-block bg-secondary px-4 py-2.5 transition-all ease-in duration-75 rounded-base">
+                        Achievements
+                    </span>
+                    <!-- Mobile -->
+                    <span class="relative inline-block sm:hidden bg-secondary px-4 py-0.5 sm:py-2.5 transition-all ease-in duration-75 rounded-base">
+                        <mat-icon class="text-text-primary">emoji_events</mat-icon>
+                    </span>
+                    <span class="relative inline-block sm:hidden px-4 py-2.5 transition-all ease-in duration-75 bg-surface rounded-base">
+                        45%
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Achievements Progress -->
+         <a [routerLink]="['/game-info', game?.apiId, userId]" class="hidden sm:inline-block">
+             <div class="space-y-1">
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                    <span class="text-text-muted">Achievements</span>
+                    <span class="text-text-primary">45%</span>
+                </div>
+                <div class="w-full bg-neutral-quaternary rounded-full h-2">
+                    <div class="bg-brand h-2 rounded-full" style="width: 45%"></div>
+                </div>
+             </div>
+         </a>
+     </section>
+</article>

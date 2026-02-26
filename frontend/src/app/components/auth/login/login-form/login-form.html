@@ -1,0 +1,77 @@
+<section class="bg-background min-h-screen w-full flex justify-center md:items-center px-0 md:px-4">
+    <!-- LOADING -->
+    @if (loading()) {
+        <section>
+            <div class="h-screen flex flex-col justify-center items-center gap-3">
+                <div class="h-10 w-10 animate-spin rounded-full border-4 border-sky-500 border-t-transparent"></div>
+                <p class="text-text-primary text-sm">
+                    Loading...
+                </p>
+            </div>
+        </section>
+    } @else {
+        <section
+            class="bg-surface w-full md:max-w-md min-h-screen md:min-h-0 md:h-auto md:shadow-2xl md:rounded-2xl p-4 md:p-8 flex flex-col justify-between">
+            <!-- Title -->
+            <h1 class="text-text-primary text-3xl font-semibold text-center mb-16 md:mb-8 mt-8 md:mt-0">Login Form</h1>
+    
+            <!-- Form -->
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    
+                <!-- Form - Username -->
+                <fieldset class="space-y-2">
+                    <label for="username" class="text-text-primary block text-sm font-medium">Username*</label>
+                    <input type="text" name="username" id="username" formControlName="username"
+                        class="bg-surface-variant text-text-primary w-full px-4 py-3 md:py-2 mb-6 md:mb-0 rounded-xl border-2 border-surface-variant focus:border-surface-variant transition duration-200">
+    
+                    @if (loginForm.get('username')?.invalid && loginForm.get('username')?.touched) {
+                    <p class="mt-1 text-xs text-red-500">
+                        @if (loginForm.get('username')?.errors?.['required']) { The username is required }
+                        @if (loginForm.get('username')?.errors?.['minlength']) { The username must have at least 2
+                        characters. }
+                        @if (loginForm.get('username')?.errors?.['maxlength']) { The username must be no longer than 32
+                        characters. }
+                    </p>
+                    }
+                </fieldset>
+    
+                <!-- Form - Password -->
+                <fieldset class="space-y-2">
+                    <label for="password" class="text-text-primary block text-sm font-medium">Password*</label>
+                    <input type="password" name="password" id="password" formControlName="password"
+                        class="bg-surface-variant text-text-primary w-full px-4 py-3 md:py-2 mb-6 md:mb-0 rounded-xl border-2 border-surface-variant focus:border-surface-variant transition duration-200">
+    
+                    @if (loginForm.get('password')?.invalid && loginForm.get('password')?.touched) {
+                    <p class="mt-1 text-xs text-red-500">
+                        @if (loginForm.get('password')?.errors?.['required']) { The password is required }
+                        @if (loginForm.get('password')?.errors?.['minlength']) { The password must have at least 8
+                        characters. }
+                        @if (loginForm.get('password')?.errors?.['maxlength']) { The password must be no longer than 64
+                        characters. }
+                    </p>
+                    }
+                </fieldset>
+    
+                <!-- Form - Submit button -->
+                <input type="submit" value="Submit" [disabled]="loginForm.invalid"
+                    class="bg-primary text-text-primary w-full py-3.5 md:py-2.5 font-medium rounded-xl shadow-lg hover:bg-primary hover:text hover:shadow-xl transition duration-200 cursor-pointer">
+            </form>
+    
+            <!-- Separator (Only in desktop)-->
+            <div class="hidden md:flex items-center my-5">
+                <div class="bg-secondary-variant h-px flex-grow"></div>
+                <span class="px-3 text-sm text-text-primary">or</span>
+                <div class="bg-secondary-variant h-px flex-grow"></div>
+            </div>
+    
+            <!-- Separator (Only in mobile) -->
+            <div class="md:hidden">
+                <h1 class="text-primary text-2xl font-semibold text-center py-16">Or Register here</h1>
+            </div>
+    
+            <!-- Register button -->
+            <button routerLink="/register"
+                class="bg-surface border border-secondary-variant text-text-muted w-full py-3.5 md:py-2.5 rounded-xl hover:border-secondary-variant hover:text transition duration-200 cursor-pointer">Register</button>
+        </section>
+    }
+</section>

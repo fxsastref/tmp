@@ -1,0 +1,33 @@
+<header class="bg-surface min-h-52 flex justify-center mb-2">
+    <div class="relative py-24 p-6 sm:py-0 w-full flex flex-wrap justify-start items-center gap-5 md:max-w-5xl md:gap-7">
+        <!-- Avatar -->
+        <figure>
+            <img src="{{user?.avatarFull}}" alt="AvatarFull" class="size-24 rounded-2xl md:size-32">
+            <div class="mt-[-11px] text-center">
+                <span class="text-text-primary bg-secondary px-2 py-0.5 rounded-full md:px-4 md:py-2">{{user?.level}}</span>
+            </div>
+        </figure>
+
+        <!-- User Information -->
+        <section class="flex flex-wrap justify-start items-center gap-5 md:gap-7">
+            <!-- Personal Information -->
+            <div>
+                <h1 class="inline-block text-text-primary font-bold text-2xl md:text-4xl">{{user?.personaName}}</h1>
+                <h2 class="inline-block text-text-muted text-base ml-2 mb-3 md:text-xl md:mb-6">#{{user?.username}}</h2>
+                <h3 class="text-text-muted text-sm md:text-base">{{user?.steamId}}</h3>
+            </div>
+        </section>
+        
+        <!-- User Stats -->
+        <section class="absolute flex gap-6 self-end right-0 bottom-3 px-4 text-sm">
+            <div class="flex items-end gap-2">
+                <mat-icon class="text-text-primary">sports_esports</mat-icon>
+                <span class="text-text-primary font-semibold">{{totalGames() || "N/A"}}</span>
+            </div>
+            <div class="flex items-end gap-2">
+                <mat-icon class="text-text-primary">emoji_events</mat-icon>
+                <span class="text-text-primary font-semibold">{{totalAchievements() || "N/A"}}</span>
+            </div>
+        </section>
+    </div>
+</header>

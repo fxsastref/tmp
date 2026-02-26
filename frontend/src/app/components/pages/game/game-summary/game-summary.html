@@ -1,0 +1,81 @@
+<main class="flex flex-col items-center gap-6">
+  <!--Pills-->
+  <section>
+    <div class="flex flex-wrap items-start size-auto p-2">
+      <!--Categories-->
+      @for (category of game?.categories; track category) {
+        <article class="bg-primary rounded-full flex justify-center m-1">
+          <span class="text-text-primary text-sm m-2">{{category.description}}</span>
+        </article>
+      }
+    <!--Genres-->
+      @for (genre of game?.genres; track genre) {
+        <article class="bg-primary-variant rounded-full flex jusitfy-center m-1">
+          <span class="text-text-primary text-sm m-2">{{genre.description}}</span>
+        </article>
+      }
+    </div>
+  </section>
+  
+  <!--Game release info-->
+  <section class="md:max-w-5xl mt-6">
+    <ul role="list" class="space-y-3 p-6 divide-y divide-default">
+      <!--Developers-->
+      <li class="flex items-center justify-between pb-3">
+        <div class="flex items-center text-text-primary sm:gap-3">
+          <mat-icon class="!text-sm sm:!text-xl">supervisor_account</mat-icon>
+          <span class="text-md sm:text-lg mr-12">Developers</span>
+        </div>
+        @for (developer of game?.developers; track developer) {
+        <span class="text-text-primary text-md sm:text-lg">{{developer}}</span>
+        }
+      </li>
+
+      <!--Publishers-->
+      <li class="flex items-center justify-between pb-3">
+        <div class="flex items-center text-text-primary sm:gap-3">
+          <mat-icon class="!text-sm sm:!text-xl">group_work</mat-icon>
+          <span class="text-md sm:text-lg mr-12">Publishers</span>
+        </div>
+        @for (publishers of game?.publishers; track publishers) {
+        <span class="text-text-primary text-md sm:text-lg">{{publishers}}</span>
+        }
+      </li>
+
+      <!--Release Date-->
+      <li class="flex items-center justify-between pb-3">
+        <div class="flex items-center text-text-primary sm:gap-3">
+          <mat-icon class="!text-sm sm:!text-xl">calendar_today</mat-icon>
+          <span class="text-md sm:text-lg ">Release Date</span>
+        </div>
+        @if (game?.comingSoon) {
+          <span class="text-text-primary text-md sm:text-lg">Coming soon</span>
+        } @else {
+          <span class="text-text-primary text-md sm:text-lg">{{game?.date}}</span>
+        }
+      </li>
+    </ul>
+  </section>
+
+  <!--Description-->
+  <section class="w-full md:max-w-5xl px-6 md:px-8 py-8">
+
+    <!-- Header -->
+    <section class="flex items-center gap-4 mb-6">
+      <h2 class="text-text-primary text-2xl font-bold whitespace-nowrap">About this game</h2>
+      <div class="h-px flex-1 bg-linear-to-r from-blue-900"></div>
+    </section>
+
+    <!-- Description -->
+    <section class="relative pl-5 border-l-2">
+      <!-- Decorative point -->
+      <div class="absolute -left-[5px] top-0 size-2 rounded-full bg-primary"></div>
+
+      <p class="text-text-primary leading-relaxed text-base md:text-lg">{{game?.shortDescription}}</p>
+
+      <!-- Decorative point -->
+      <div class="absolute -left-[5px] bottom-0 size-2 rounded-full bg-secondary"></div>
+    </section>
+
+  </section>
+</main>

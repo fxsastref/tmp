@@ -1,0 +1,52 @@
+<section class="flex flex-col justify-center items-center p-4 my-8 gap-16">
+  <!-- ------------------------------- -->
+    <!-- WOIK IN PROGRESS -->
+    <!-- Filters -->
+    <!-- <form class="flex flex-wrap justify-center items-center gap-6">
+      <div class="w-36 mx-auto">
+        <select id="countries" class="block w-full px-3 py-2.5 bg-secondary-variant text-text-primary text-heading text-sm rounded cursor-pointer">
+          <option selected>Genre</option>
+          @for (genre of genres(); track genre.apiId) {
+            <option value="{{genre}}">{{genre}}</option>
+          }
+        </select>
+      </div>
+
+      <div class="w-36 mx-auto">
+        <select id="countries" class="block w-full px-3 py-2.5 bg-secondary-variant text-text-primary text-heading text-sm rounded cursor-pointer">
+          <option selected>Category</option>
+          @for (category of categories(); track category.apiId) {
+                <option value="{{category}}">{{category}}</option>
+            }
+        </select>
+      </div>
+
+      <div class="w-36 mx-auto">
+        <select id="countries" class="block w-full px-3 py-2.5 bg-secondary-variant text-text-primary text-heading text-sm rounded cursor-pointer">
+          <option selected>Publisher</option>
+          @for (publisher of publishers(); track publisher) {
+            <option value="{{publisher}}">{{publisher}}</option>
+          }
+        </select>
+      </div>
+
+      <div class="w-36 mx-auto">
+        <select id="countries" class="block w-full px-3 py-2.5 bg-secondary-variant text-text-primary text-heading text-sm rounded cursor-pointer">
+          <option selected>Developer</option>
+          @for (developer of developers(); track developer) {
+            <option value="{{developer}}">{{developer}}</option>
+          }
+        </select>
+      </div>
+    </form> -->
+  <!-- ------------------------------- -->
+
+    <!-- Games List -->
+    <section class="w-full md:max-w-2/3 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 justify-center items-center">
+        @for(game of games; track game.apiId) {
+          <app-game-card [game]="game"></app-game-card>
+        } @empty {
+            <span class="col-span-full text-center text-text-muted mt-10 text-3xl font-bold">There are no games in the local database</span> 
+        }
+    </section>
+</section>

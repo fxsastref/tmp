@@ -1,0 +1,5 @@
+<section class="mt-5 flex gap-3">
+    @for(friend of friends(); track friend.username) {
+        <app-user-card [user]="friend"></app-user-card>
+    }
+</section>

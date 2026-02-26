@@ -1,0 +1,22 @@
+/* Estilos adicionales si necesitas personalizar algo más allá de Tailwind */
+
+/* Animación suave para el dropdown */
+.dropdown-enter {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efecto hover personalizado si lo necesitas */
+nav a {
+  position: relative;
+}

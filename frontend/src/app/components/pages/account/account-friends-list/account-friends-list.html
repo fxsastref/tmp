@@ -1,0 +1,7 @@
+<section class="w-full mx-auto grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-center items-center mt-4">
+    @for(friend of friends(); track friend.username) {
+        <app-user-card [user]="friend"></app-user-card>
+    } @empty {
+        <span class="col-span-full text-center text-text-muted mt-15 text-3xl font-bold">Add friends to your Steam account to see them in the list.</span> 
+    }
+</section>

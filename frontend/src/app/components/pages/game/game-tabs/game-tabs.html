@@ -1,0 +1,12 @@
+<section class="bg-background w-full flex justify-center">
+    <div class="w-full">
+        <mat-tab-group>
+            <mat-tab label="Summary">
+                <app-game-summary [game]="game"></app-game-summary>
+            </mat-tab>
+            <mat-tab label="Achievements">
+                <app-game-achievements [game]="game" [user]="user"></app-game-achievements>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>

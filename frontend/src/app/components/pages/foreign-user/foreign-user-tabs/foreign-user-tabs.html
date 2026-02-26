@@ -1,0 +1,13 @@
+<section class="bg-seconday-variant w-full flex justify-center">
+    <div class="w-full md:max-w-5xl">
+        <mat-tab-group>
+            <mat-tab label="Games">
+                <app-foreign-user-games-list [games]="games" [user]="user"></app-foreign-user-games-list>
+            </mat-tab>
+
+            <mat-tab label="Friends">
+                <app-foreign-user-friends-list [user]="user"></app-foreign-user-friends-list>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</section>

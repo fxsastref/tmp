@@ -1,0 +1,5 @@
+<section class="mt-4 flex flex-col gap-3">
+    @for(game of games; track game.name) {
+        <app-game-card-listed [game]="game" [userId]="user?.steamId"></app-game-card-listed>
+    }
+</section>

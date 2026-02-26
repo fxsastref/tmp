@@ -1,0 +1,25 @@
+<article [routerLink]="['/game-info', game?.apiId]" class="group relative w-full rounded-xl overflow-hidden bg-surface cursor-pointer">
+
+  <!-- Game Image -->
+  <figure class="relative h-36 overflow-hidden">
+      <img class="size-full object-cover transition-transform duration-500 group-hover:scale-110" src="{{game.headerImage}}" alt="Game Frontpage"/>
+
+      <!-- Gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+  </figure>
+
+  <!-- Game Information -->
+  <section class="flex flex-col gap-2 px-3.5 py-3">
+    <div>
+        <h5 class="text-sm font-semibold tracking-wide text-text-primary truncate">{{game.name}}</h5>
+    </div>
+
+    <div class="flex items-center">
+      <div class="flex items-center gap-1 text-xs font-medium text-text-muted bg-white/5 border border-white/8 rounded-full px-2.5 py-1">
+        <mat-icon class="!text-yellow-400 !text-sm !w-3.5 !h-3.5">emoji_events</mat-icon>
+        <span>{{game.totalAchievements}}</span>
+      </div>
+    </div>
+  </section>
+
+</article>

@@ -1,0 +1,32 @@
+<header class="relative h-64 lg:h-96 mx-auto overflow-hidden">
+
+  <!-- Blurred background -->
+  <section class="absolute inset-0">
+    <img class="size-full object-cover scale-110 blur-3xl brightness-50 transition-transform duration-700 group-hover:scale-125" src="{{game?.headerImage}}" alt="Blurred image"/>
+    <!-- Gradient overlays -->
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent"></div>
+  </section>
+
+  <!-- Main banner image -->
+  <section class="relative mx-auto h-full md:max-w-5xl">
+    <figure class="size-full">
+      <img class="size-full object-cover object-top" src="{{game?.headerImage}}" alt="Game banner"/>
+      <!-- Inner vignette on the banner itself -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none"></div>
+    </figure>
+
+    <!-- Game Information -->
+    <section class="absolute bottom-0 left-0 px-5 pb-5 md:px-8 md:pb-7 flex items-end gap-4 md:gap-5">
+      <!-- Icon -->
+      <figure class="relative">
+        <img class="relative size-16 md:size-20 rounded-xl object-cover" src="{{game?.capsuleImage}}" alt="Game icon" />
+      </figure>
+
+      <!-- Title -->
+      <figcaption class="flex flex-col gap-1 mb-0.5">
+        <h1 class="text-text-primary text-2xl md:text-4xl font-extrabold leading-tight tracking-tight">{{game?.name}}</h1>
+      </figcaption>
+    </section>
+  </section>
+</header>

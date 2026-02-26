@@ -1,0 +1,33 @@
+<!-- Search Input -->
+<section class="w-full my-10">   
+    <label for="search" class="block mb-2.5 text-sm font-medium text-white sr-only">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/></svg>
+        </div>
+        <input type="search" id="search" class="block w-full p-3 ps-9 bg-secondary-variant text-white text-sm rounded-base focus:ring-brand focus:border-brand placeholder:text-white shadow-xs" placeholder="Search" [formControl]="searchText" />
+    </div>
+</section>
+
+@if (loading) {
+<section class="mx-auto">
+    <div class="h-96 flex flex-col justify-center items-center gap-3">
+        <div class="h-10 w-10 animate-spin rounded-full border-4 border-sky-500 border-t-transparent"></div>
+        <p class="text-text-primary text-sm">
+            Loading...
+        </p>
+    </div>
+</section>
+} @else {
+<section class="flex flex-col gap-3 mt-4">
+    @for(game of searchGames(); track game.apiId) {
+    <app-game-card-listed [game]="game" [userId]="user?.steamId"></app-game-card-listed>
+    } @empty {
+        @if (user?.steamId) {
+            <span class="col-span-full text-center text-text-muted mt-15 text-3xl font-bold">Add games to your Steam library to see them in the list.</span> 
+        } @else {
+            <span class="col-span-full text-center text-text-muted mt-15 text-3xl font-bold">Link your account to view your Steam data</span> 
+        }
+    }
+</section>
+}

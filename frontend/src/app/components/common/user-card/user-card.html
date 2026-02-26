@@ -1,0 +1,22 @@
+<article class="relative bg-surface max-w-xs w-full mx-auto p-6 h-72 rounded">
+   <div class="flex flex-col items-center">
+      <figure class="mb-2 hover:scale-110 transition duration-300">
+         <a (click)="redirectToUserPage()">
+            @if (user.avatarFull) {
+               <img class="w-24 h-24 rounded-full" src="{{user.avatarFull}}" alt="User Avatar"/>
+            } @else {
+               <img class="w-24 h-24 rounded-full" src="unknown.png" alt="User Avatar"/>
+            }
+            <div class="mt-[-11px] text-center">
+                <span class="text-text-primary bg-secondary px-2 py-0.5 rounded-full md:px-2.5 md:py-1">{{user.level}}</span>
+            </div>
+         </a>
+      </figure>
+      <h4 class="mb-0.5 text-xl font-semibold tracking-tight text-text-primary">{{user.personaName || user.username}}</h4>
+      <span class="text-sm text-text-muted">#{{user.steamId || "NA"}}</span>
+      <button (click)="redirectToUserPage()" type="button" class="inline-flex absolute bottom-5 items-center text-text-muted hover:text bg-primary hover:bg-primary font-medium leading-5 rounded-base text-sm px-4 py-2.5 hover:scale-110 transition duration-300 cursor-pointer gap-3">
+         <mat-icon>visibility</mat-icon>
+         <span>See profile</span>
+      </button>
+   </div>
+</article>

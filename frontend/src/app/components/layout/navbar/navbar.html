@@ -1,0 +1,86 @@
+<nav class="bg-primary z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg-px8">
+        <div class="flex justify-between items-center h-16">
+            <!-- Website Logo -->
+            <figure class="shrink-0 flex items-center">
+                <a routerLink="/home" class="flex items-center">
+                    <img class="h-8 w-auto" src="logo.webp" alt="Website Logo">
+                    <span class="ml-2 text-xl font-bold text-text-muted hover:text transition duration-200">Platinum</span>
+                </a>
+                </figure>
+    
+            <!-- Website Links -->
+            <section class="hidden md:flex md:items-center md:space-x-8">
+                <a routerLink="/home" class="text-text-muted hover:text px-3 py-2 text-sm font-medium transition duration-200" routerLinkActive="text-text-primary border-b-2 border-secondary">Home</a>
+                <a routerLink="/games-browse" class="text-text-muted hover:text px-3 py-2 text-sm font-medium transition duration-200" routerLinkActive="text-text-primary border-b-2 border-secondary">Games</a>
+                <a routerLink="/users-browse" class="text-text-muted hover:text px-3 py-2 text-sm font-medium transition duration-200" routerLinkActive="text-text-primary border-b-2 border-secondary">Players</a>
+            </section>
+    
+            <!-- User Options -->
+            <section class="hidden md:flex md:items-center md:space-x-4">
+                <!-- User Avatar -->
+                <div class="relative" (clickOutside)="closeUserMenu()">
+                    <button (click)="toggleUserMenu()" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-primary-variant text-text-muted hover:text transition duration-200 cursor-pointer">
+                        @if (user()?.avatarFull) {
+                            <img class="h-8 w-8 rounded-full object-cover" src="{{user()?.avatar}}" alt="User Avatar">
+                        } @else {
+                            <img class="h-8 w-8 rounded-full object-cover" src="unknown.png" alt="User Avatar">
+                        }
+                        <mat-icon>keyboard_arrow_down</mat-icon>
+                    </button>
+    
+                    <!-- Dropdown Menu -->
+                    @if (isUserMenuOpen) {
+                        <div class="absolute right-0 mt-2 w-48 bg-primary rounded-b shadow-lg py-1 z-30 border border-black overflow-hidden">
+                            <div class="px-4 py-3 text-sm border-b border-default">
+                                <span class="block text-text-primary font-medium">{{user()?.personaName || user()?.username}}</span>
+                                <span class="block text-text-muted truncate">{{user()?.email}}</span>
+                            </div>
+                            <a routerLink="/account" class="block px-4 py-2 text-sm text-text-muted hover:bg-primary-variant hover:text transition-colors duration-200">Account</a>
+                            <hr class="my-1 border-black">
+                            <a (click)="logout()" routerLink="" class="block px-4 py-2 text-sm text-error hover:bg-primary-variant transition-colors duration-200">Logout</a>
+                        </div>
+                    }
+                </div>
+            </section>
+    
+            <!-- Mobile Menu Button -->
+            <section class="md:hidden flex items-center">
+                <button (click)="toggleMobileMenu()">
+                    @if (!isMobileMenuOpen) {
+                        <mat-icon class="text-text-primary cursor-pointer">menu</mat-icon>
+                    } @else {
+                        <mat-icon class="text-text-primary cursor-pointer">close</mat-icon>
+                    }
+                </button>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    @if (isMobileMenuOpen) {
+        <div class="md:hidden border-t border-black">
+            <!-- Mobile Website Links -->
+            <section class="px-2 pt-2 pb-3 space-y-1">
+                <a routerLink="/home" class="block px-3 py-2 rounded-md text-base font-medium text-text-primary" routerLinkActive="text-text-primary bg-primary-variant">Home</a>
+                <a routerLink="/games-browse" class="block px-3 py-2 rounded-md text-base font-medium text-text-primary" routerLinkActive="text-text-primary bg-primary-variant">Games</a>
+                <a routerLink="/users-browse" class="block px-3 py-2 rounded-md text-base font-medium text-text-primary" routerLinkActive="text-text-primary bg-primary-variant">Players</a>
+            </section>
+    
+            <!-- Mobile User Options -->
+            <section class="pt-4 pb-3 border-t border-black">
+                <div class="flex items-center px-5">
+                    <img class="h-10 w-10 rounded-full object-cover" src="{{user()?.avatar}}" alt="User Avatar">
+                    <div class="ml-3">
+                        <span class="block text-base font-medium text-text-primary">{{user()?.personaName}}</span>
+                        <span class="text-sm font-medium text-text-primary">{{user()?.email}}</span>
+                    </div>
+                    </div>
+                <div class="mt-3 px-2 space-y-1">
+                    <a routerLink="/account" class="block px-3 py-2 rounded-md text-base font-medium text-text-primary">Account</a>
+                    <a (click)="logout()" class="block px-3 py-2 rounded-md text-base font-medium text-error">Logout</a>
+                    </div>
+            </section>
+        </div>
+    }
+</nav>
