@@ -1,0 +1,91 @@
+// =============================
+// Var Colors
+// =============================
+$c-primary: #2b4d97;
+$c-primary-hover: #2747a8;
+$c-primary-variant: #7a98f3;
+$c-primary-variant-hover: #365bc7;
+
+$c-secondary: #1c3f86;
+$c-secondary-hover: #143169;
+$c-secondary-variant: #314158;
+$c-secondary-variant-hover: #1c2939;
+
+$c-background: #020618;
+$c-surface: #0f172b;
+$c-surface-variant: #1d293d;
+
+$c-error: #e53935;
+$c-warning: #ffb800;
+$c-success: #00c46b;
+
+$c-text-primary: white;
+$c-text-muted: #bdbdbd;
+
+// =============================
+// Text Colors
+// =============================
+.text-primary { color: $c-primary; }
+.hover\:text-primary:hover { color: $c-primary-hover; }
+.text-primary-variant { color: $c-primary-variant; }
+.hover\:text-primary-variant:hover { color: $c-primary-variant-hover; }
+.text-secondary { color: $c-secondary; }
+.hover\:text-secondary:hover { color: $c-secondary-hover; }
+.text-secondary-variant { color: $c-secondary-variant; }
+.hover\:text-secondary-variant:hover { color: $c-secondary-variant-hover; }
+
+.text-error { color: $c-error; }
+.text-warning { color: $c-warning; }
+.text-success { color: $c-success; }
+
+.text-text-primary { color: $c-text-primary; }
+.text-text-muted { color: $c-text-muted; }
+.hover\:text:hover { color: $c-text-primary; }
+
+
+// =============================
+// Background Colors
+// =============================
+.bg-primary { background-color: $c-primary; }
+.hover\:bg-primary:hover { background-color: $c-primary-hover; }
+
+.bg-primary-variant { background-color: $c-primary-variant; }
+.hover\:bg-primary-variant:hover{ background-color: $c-primary-variant-hover; }
+
+.bg-secondary { background-color: $c-secondary; }
+.hover\:bg-secondary:hover { background-color: $c-secondary-hover; }
+.bg-secondary-variant { background-color: $c-secondary-variant; }
+.hover\:bg-secondary-variant:hover{ background-color: $c-secondary-variant-hover; }
+
+.bg-background { background-color: $c-background; }
+.bg-surface { background-color: $c-surface; }
+.bg-surface-variant { background-color: $c-surface-variant; }
+
+.bg-error { background-color: $c-error; }
+.bg-warning { background-color: $c-warning; }
+.bg-success { background-color: $c-success; }
+
+
+// =============================
+// Border Colors
+// =============================
+.border-primary { border-color: $c-primary; }
+.hover\:border-primary:hover { border-color: $c-primary-hover; }
+
+.border-primary-variant { border-color: $c-primary-variant; }
+.hover\:border-primary-variant:hover { border-color: $c-primary-variant-hover; }
+
+.border-secondary { border-color: $c-secondary; }
+.hover\:border-secondary:hover { border-color: $c-secondary-hover; }
+
+.border-secondary-variant { border-color: $c-secondary-variant; }
+.hover\:border-secondary-variant:hover { border-color: $c-secondary-variant-hover; }
+
+.border-surface { border-color: $c-surface; }
+.border-surface-variant { border-color: $c-surface-variant; }
+.hover\:border-surface:hover { border-color: $c-surface-variant; }
+.focus\:border-surface-variant:focus { border-color: $c-primary; outline: none; }
+
+.border-error { border-color: $c-error; }
+.border-warning { border-color: $c-warning; }
+.border-success { border-color: $c-success; }
